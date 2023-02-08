@@ -1,8 +1,8 @@
 import time
 
-import use_api
-import use_selenium
-import utilities
+import utilities.api as api
+import utilities.excel as ex
+import utilities.selenium as selenium
 
 
 class Organization(object):
@@ -11,13 +11,13 @@ class Organization(object):
 
     def excel_file_api(self):
         start = time.time()
-        res = use_api.get_repo_info(self.name)
+        res = api.get_repo_info(self.name)
         print("Runtime: ", time.time() - start)
 
     def excel_file_selentium(self):
         start = time.time()
-        res = use_selenium.get_repo_info(self.name)
-        utilities.write_to_excel(self.name, res)
+        res = selenium.get_repo_info(self.name)
+        ex.write_to_excel(self.name, res)
         print("Runtime: ", time.time() - start)
 
 
