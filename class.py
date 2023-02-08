@@ -1,7 +1,7 @@
 import time
 
-import api
-import selentium
+import use_api
+import use_selenium
 import utilities
 
 
@@ -11,12 +11,12 @@ class Organization(object):
 
     def excel_file_api(self):
         start = time.time()
-        res = api.get_repo_info(self.name)
+        res = use_api.get_repo_info(self.name)
         print("Runtime: ", time.time() - start)
 
     def excel_file_selentium(self):
         start = time.time()
-        res = selentium.get_repo_info(self.name)
+        res = use_selenium.get_repo_info(self.name)
         utilities.write_to_excel(self.name, res)
         print("Runtime: ", time.time() - start)
 
